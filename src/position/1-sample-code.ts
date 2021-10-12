@@ -20,7 +20,7 @@ async function main() {
 
   // take perpetualIndex 0 (ETH-USD) for example:
   // 2. setTargetLeverage if you didn't set. 5x Leverage.
-  // await liquidityPool.connect(trader).setTargetLeverage(0, trader.address, toWei("5"))
+  await liquidityPool.connect(trader).setTargetLeverage(0, trader.address, toWei("5"))
 
   // 3. use queryTrade() to know totalFee, cost before executing trade().
   // POSITION = 1
