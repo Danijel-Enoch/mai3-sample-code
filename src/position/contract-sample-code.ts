@@ -7,8 +7,6 @@ import {
   USE_TARGET_LEVERAGE
 } from "../utils"
 
-import BigNumber from "bignumber.js";
-
 // Take Arb-Rinkeby LiquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13) for example.
 async function main() {
   const accounts = await ethers.getSigners()
