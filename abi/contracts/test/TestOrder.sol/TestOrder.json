@@ -1,0 +1,1242 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TestOrder",
+  "sourceName": "contracts/test/TestOrder.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "testOrder",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint8",
+          "name": "signType",
+          "type": "uint8"
+        }
+      ],
+      "name": "compress",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "compressed",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "decompress",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "getSigner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "isCloseOnly",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "isMarketOrder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "isStopLossOrder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "isTakeProfitOrder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "orderHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "salt",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "trader",
+          "type": "address"
+        },
+        {
+          "internalType": "int256",
+          "name": "amount",
+          "type": "int256"
+        }
+      ],
+      "name": "setPositionAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "internalType": "int256",
+          "name": "amount",
+          "type": "int256"
+        }
+      ],
+      "name": "validateOrder",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "validateSignature",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "broker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "relayer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "referrer",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "liquidityPool",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "minTradeAmount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "amount",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "limitPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "int256",
+              "name": "triggerPrice",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "chainID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiredAt",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint32",
+              "name": "perpetualIndex",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "brokerFeeLimit",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flags",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "salt",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "validateTriggerPrice",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50600160425561149a806100256000396000f3fe608060405234801561001057600080fd5b50600436106100df5760003560e01c806384b66efe1161008c578063d881f3b411610066578063d881f3b4146101a9578063da28c4fa146101c9578063ee23a0ad146101e9578063fb2198e5146101fc576100df565b806384b66efe14610176578063acc3e3bd1461010d578063b532641f14610189576100df565b80635cd3f3a1116100bd5780635cd3f3a11461014057806361a175e11461010d578063769b7fa414610161576100df565b80630a873d20146100e45780632ea99a541461010d5780633a175c121461012d575b600080fd5b6100f76100f2366004610cc9565b61020f565b60405161010491906113bb565b60405180910390f35b61012061011b366004610cc9565b610221565b6040516101049190611299565b61012061013b366004610cc9565b610232565b61015361014e366004610c8e565b61023d565b604051610104929190611399565b61017461016f366004610cc9565b610262565b005b610174610184366004610d90565b6102e8565b61019c610197366004610d41565b610371565b6040516101049190611285565b6101bc6101b7366004610cc9565b61038c565b60405161010491906112a4565b6101dc6101d7366004610ce5565b610397565b60405161010491906112c2565b6101746101f7366004610d41565b6104b8565b61017461020a366004610c65565b61050d565b6101c081015163ffffffff165b919050565b600061022c8261054b565b92915050565b600061022c8261055b565b610245610a2a565b60606102508361056b565b915061025b83610660565b9050915091565b6040517f4af2e32700000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__90634af2e327906102b59060339085906004016112ad565b60006040518083038186803b1580156102cd57600080fd5b505af41580156102e1573d6000803e3d6000fd5b5050505050565b6040517ff2ab44c200000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__9063f2ab44c29061033d9060339086908690600401611375565b60006040518083038186803b15801561035557600080fd5b505af4158015610369573d6000803e3d6000fd5b505050505050565b600061038561037f846106d2565b836107f1565b9392505050565b600061022c826106d2565b60608086600001518760200151886040015189606001518a608001516040516020016103c7959493929190610f07565b60408051601f198184030181529082905260a089015160c08a015160e08b01516101008c01516101208d01519496506060956104069590602001610ff7565b60408051601f19818403018152908290526101408a01516101608b01516101808c01516101a08d01516101c08e015194965060609561044c95908c908c906020016111d3565b604051602081830303815290604052905060608888604051602001610472929190610f4b565b60405160208183030381529060405290508383838360405160200161049a9493929190610fa0565b60405160208183030381529060405294505050505095945050505050565b6040517f8120e3d100000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__90638120e3d19061033d9060339086908690600401611343565b6001600160a01b0390911660009081527f8872e3e321618d759d961376a09ede5795255e81a37cc4a6812c4ae68bf2f8016020526040902060010155565b6101a00151638000000016151590565b6101a00151634000000016151590565b610573610a2a565b6101008251101561059f5760405162461bcd60e51b8152600401610596906112d5565b60405180910390fd5b6014820151815260288201516020820152603c82015160408083019190915260508301516060808401919091526064840151608080850191909152608485015160a08086019190915260a486015160c08087019190915260c487015160e087015260e4870151610100870152610104870151610120870152610124909601519586901c61014086015263ffffffff9086901c81166101608601529085901c81166101808501529084901c81166101a084015292901c9091166101c082015290565b606061015e825110156106855760405162461bcd60e51b8152600401610596906112d5565b61013e82015161015e830151610124840151604051601882901a9160191a906106b8908590859085908590602001610f59565b604051602081830303815290604052945050505050919050565b6000806040516020016106e49061101a565b604051602081830303815290604052805190602001208360405160200161070c9291906112ad565b604051602081830303815290604052805190602001209050604051602001610733906111aa565b60408051601f1981840301815282825280516020918201208383018352600f84527f4d61692050726f746f636f6c20763300000000000000000000000000000000009382019390935290516107ab92917f553f7e2049687f24030220180e64af84dd1272d5c99c4810278beb4f6e74e3099101610f4b565b60405160208183030381529060405280519060200120816040516020016107d3929190611174565b60405160208183030381529060405280519060200120915050919050565b602081015160408201516060830151600092919080841a9060011a806108215761081a8761085b565b9650610844565b60ff81166001146108445760405162461bcd60e51b81526004016105969061130c565b610850878386866108ac565b979650505050505050565b604080517f19457468657265756d205369676e6564204d6573736167653a0a333200000000602080830191909152603c8083019490945282518083039094018452605c909101909152815191012090565b60007f7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a082111561090d5760405162461bcd60e51b81526004018080602001828103825260228152602001806114216022913960400191505060405180910390fd5b8360ff16601b148061092257508360ff16601c145b61095d5760405162461bcd60e51b81526004018080602001828103825260228152602001806114436022913960400191505060405180910390fd5b600060018686868660405160008152602001604052604051808581526020018460ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa1580156109b9573d6000803e3d6000fd5b5050604051601f1901519150506001600160a01b038116610a21576040805162461bcd60e51b815260206004820152601860248201527f45434453413a20696e76616c6964207369676e61747572650000000000000000604482015290519081900360640190fd5b95945050505050565b604080516101e081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c0810182905260e08101829052610100810182905261012081018290526101408101829052610160810182905261018081018290526101a081018290526101c081019190915290565b80356001600160a01b038116811461021c57600080fd5b600082601f830112610acd578081fd5b813567ffffffffffffffff811115610ae157fe5b610af4601f8201601f19166020016113d0565b9150808252836020828501011115610b0b57600080fd5b8060208401602084013760009082016020015292915050565b60006101e0808385031215610b37578182fd5b610b40816113d0565b915050610b4c82610aa6565b8152610b5a60208301610aa6565b6020820152610b6b60408301610aa6565b6040820152610b7c60608301610aa6565b6060820152610b8d60808301610aa6565b608082015260a082013560a082015260c082013560c082015260e082013560e0820152610100808301358183015250610120808301358183015250610140610bd6818401610c3c565b90820152610160610be8838201610c28565b90820152610180610bfa838201610c28565b908201526101a0610c0c838201610c28565b908201526101c0610c1e838201610c28565b9082015292915050565b803563ffffffff8116811461021c57600080fd5b803567ffffffffffffffff8116811461021c57600080fd5b803560ff8116811461021c57600080fd5b60008060408385031215610c77578182fd5b610c8083610aa6565b946020939093013593505050565b600060208284031215610c9f578081fd5b813567ffffffffffffffff811115610cb5578182fd5b610cc184828501610abd565b949350505050565b60006101e08284031215610cdb578081fd5b6103858383610b24565b60008060008060006102608688031215610cfd578081fd5b610d078787610b24565b94506101e086013593506102008601359250610d266102208701610c54565b9150610d356102408701610c54565b90509295509295909350565b6000806102008385031215610d54578182fd5b610d5e8484610b24565b91506101e083013567ffffffffffffffff811115610d7a578182fd5b610d8685828601610abd565b9150509250929050565b6000806102008385031215610da3578182fd5b610dad8484610b24565b946101e0939093013593505050565b6001600160a01b03169052565b60008151808452610de18160208601602086016113f4565b601f01601f19169290920160200192915050565b610e00828251610dbc565b6020810151610e126020840182610dbc565b506040810151610e256040840182610dbc565b506060810151610e386060840182610dbc565b506080810151610e4b6080840182610dbc565b5060a081015160a083015260c081015160c083015260e081015160e083015261010080820151818401525061012080820151818401525061014080820151610e9582850182610ef9565b505061016080820151610eaa82850182610eef565b505061018080820151610ebf82850182610eef565b50506101a080820151610ed482850182610eef565b50506101c080820151610ee982850182610eef565b50505050565b63ffffffff169052565b67ffffffffffffffff169052565b6bffffffffffffffffffffffff19606096871b8116825294861b8516601482015292851b8416602884015290841b8316603c83015290921b16605082015260640190565b918252602082015260400190565b93845260208401929092527fff0000000000000000000000000000000000000000000000000000000000000060f891821b8116604085015291901b16604182015260420190565b60008551610fb2818460208a016113f4565b855190830190610fc6818360208a016113f4565b8551910190610fd98183602089016113f4565b8451910190610fec8183602088016113f4565b019695505050505050565b948552602085019390935260408401919091526060830152608082015260a00190565b7f4f726465722861646472657373207472616465722c616464726573732062726f81527f6b65722c616464726573732072656c617965722c61646472657373207265666560208201527f727265722c61646472657373206c6971756964697479506f6f6c2c000000000060408201527f696e74323536206d696e5472616465416d6f756e742c696e7432353620616d6f605b8201527f756e742c696e74323536206c696d697450726963652c696e7432353620747269607b8201527f6767657250726963652c75696e7432353620636861696e49442c000000000000609b8201527f75696e743634206578706972656441742c75696e74333220706572706574756160b58201527f6c496e6465782c75696e7433322062726f6b65724665654c696d69742c75696e60d58201527f74333220666c6167732c75696e7433322073616c74290000000000000000000060f582015261010b0190565b7f190100000000000000000000000000000000000000000000000000000000000081526002810192909252602282015260420190565b7f454950373132446f6d61696e28737472696e67206e616d652900000000000000815260190190565b60c09790971b7fffffffffffffffff00000000000000000000000000000000000000000000000016875260e095861b7fffffffff00000000000000000000000000000000000000000000000000000000908116600889015294861b8516600c88015292851b84166010870152931b909116601484015260f891821b7fff000000000000000000000000000000000000000000000000000000000000009081166018850152911b166019820152601a0190565b6001600160a01b0391909116815260200190565b901515815260200190565b90815260200190565b82815261020081016103856020830184610df5565b6000602082526103856020830184610dc9565b6020808252600b908201527f62726f6b656e2064617461000000000000000000000000000000000000000000604082015260600190565b60208082526015908201527f756e737570706f72746564207369676e20747970650000000000000000000000604082015260600190565b60006102208583526113586020840186610df5565b8061020084015261136b81840185610dc9565b9695505050505050565b838152610220810161138a6020830185610df5565b82610200830152949350505050565b60006102006113a88386610df5565b806101e0840152610a2181840185610dc9565b67ffffffffffffffff91909116815260200190565b60405181810167ffffffffffffffff811182821017156113ec57fe5b604052919050565b60005b8381101561140f5781810151838201526020016113f7565b83811115610ee9575050600091015256fe45434453413a20696e76616c6964207369676e6174757265202773272076616c756545434453413a20696e76616c6964207369676e6174757265202776272076616c7565a2646970667358221220b618963a7719f27e846cb26e79f048a6cf77bb025719beb3300eeb5c7521a1c664736f6c63430007040033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100df5760003560e01c806384b66efe1161008c578063d881f3b411610066578063d881f3b4146101a9578063da28c4fa146101c9578063ee23a0ad146101e9578063fb2198e5146101fc576100df565b806384b66efe14610176578063acc3e3bd1461010d578063b532641f14610189576100df565b80635cd3f3a1116100bd5780635cd3f3a11461014057806361a175e11461010d578063769b7fa414610161576100df565b80630a873d20146100e45780632ea99a541461010d5780633a175c121461012d575b600080fd5b6100f76100f2366004610cc9565b61020f565b60405161010491906113bb565b60405180910390f35b61012061011b366004610cc9565b610221565b6040516101049190611299565b61012061013b366004610cc9565b610232565b61015361014e366004610c8e565b61023d565b604051610104929190611399565b61017461016f366004610cc9565b610262565b005b610174610184366004610d90565b6102e8565b61019c610197366004610d41565b610371565b6040516101049190611285565b6101bc6101b7366004610cc9565b61038c565b60405161010491906112a4565b6101dc6101d7366004610ce5565b610397565b60405161010491906112c2565b6101746101f7366004610d41565b6104b8565b61017461020a366004610c65565b61050d565b6101c081015163ffffffff165b919050565b600061022c8261054b565b92915050565b600061022c8261055b565b610245610a2a565b60606102508361056b565b915061025b83610660565b9050915091565b6040517f4af2e32700000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__90634af2e327906102b59060339085906004016112ad565b60006040518083038186803b1580156102cd57600080fd5b505af41580156102e1573d6000803e3d6000fd5b5050505050565b6040517ff2ab44c200000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__9063f2ab44c29061033d9060339086908690600401611375565b60006040518083038186803b15801561035557600080fd5b505af4158015610369573d6000803e3d6000fd5b505050505050565b600061038561037f846106d2565b836107f1565b9392505050565b600061022c826106d2565b60608086600001518760200151886040015189606001518a608001516040516020016103c7959493929190610f07565b60408051601f198184030181529082905260a089015160c08a015160e08b01516101008c01516101208d01519496506060956104069590602001610ff7565b60408051601f19818403018152908290526101408a01516101608b01516101808c01516101a08d01516101c08e015194965060609561044c95908c908c906020016111d3565b604051602081830303815290604052905060608888604051602001610472929190610f4b565b60405160208183030381529060405290508383838360405160200161049a9493929190610fa0565b60405160208183030381529060405294505050505095945050505050565b6040517f8120e3d100000000000000000000000000000000000000000000000000000000815273__$b6905e4a302a713a1eaca5d53b662e815c$__90638120e3d19061033d9060339086908690600401611343565b6001600160a01b0390911660009081527f8872e3e321618d759d961376a09ede5795255e81a37cc4a6812c4ae68bf2f8016020526040902060010155565b6101a00151638000000016151590565b6101a00151634000000016151590565b610573610a2a565b6101008251101561059f5760405162461bcd60e51b8152600401610596906112d5565b60405180910390fd5b6014820151815260288201516020820152603c82015160408083019190915260508301516060808401919091526064840151608080850191909152608485015160a08086019190915260a486015160c08087019190915260c487015160e087015260e4870151610100870152610104870151610120870152610124909601519586901c61014086015263ffffffff9086901c81166101608601529085901c81166101808501529084901c81166101a084015292901c9091166101c082015290565b606061015e825110156106855760405162461bcd60e51b8152600401610596906112d5565b61013e82015161015e830151610124840151604051601882901a9160191a906106b8908590859085908590602001610f59565b604051602081830303815290604052945050505050919050565b6000806040516020016106e49061101a565b604051602081830303815290604052805190602001208360405160200161070c9291906112ad565b604051602081830303815290604052805190602001209050604051602001610733906111aa565b60408051601f1981840301815282825280516020918201208383018352600f84527f4d61692050726f746f636f6c20763300000000000000000000000000000000009382019390935290516107ab92917f553f7e2049687f24030220180e64af84dd1272d5c99c4810278beb4f6e74e3099101610f4b565b60405160208183030381529060405280519060200120816040516020016107d3929190611174565b60405160208183030381529060405280519060200120915050919050565b602081015160408201516060830151600092919080841a9060011a806108215761081a8761085b565b9650610844565b60ff81166001146108445760405162461bcd60e51b81526004016105969061130c565b610850878386866108ac565b979650505050505050565b604080517f19457468657265756d205369676e6564204d6573736167653a0a333200000000602080830191909152603c8083019490945282518083039094018452605c909101909152815191012090565b60007f7fffffffffffffffffffffffffffffff5d576e7357a4501ddfe92f46681b20a082111561090d5760405162461bcd60e51b81526004018080602001828103825260228152602001806114216022913960400191505060405180910390fd5b8360ff16601b148061092257508360ff16601c145b61095d5760405162461bcd60e51b81526004018080602001828103825260228152602001806114436022913960400191505060405180910390fd5b600060018686868660405160008152602001604052604051808581526020018460ff1681526020018381526020018281526020019450505050506020604051602081039080840390855afa1580156109b9573d6000803e3d6000fd5b5050604051601f1901519150506001600160a01b038116610a21576040805162461bcd60e51b815260206004820152601860248201527f45434453413a20696e76616c6964207369676e61747572650000000000000000604482015290519081900360640190fd5b95945050505050565b604080516101e081018252600080825260208201819052918101829052606081018290526080810182905260a0810182905260c0810182905260e08101829052610100810182905261012081018290526101408101829052610160810182905261018081018290526101a081018290526101c081019190915290565b80356001600160a01b038116811461021c57600080fd5b600082601f830112610acd578081fd5b813567ffffffffffffffff811115610ae157fe5b610af4601f8201601f19166020016113d0565b9150808252836020828501011115610b0b57600080fd5b8060208401602084013760009082016020015292915050565b60006101e0808385031215610b37578182fd5b610b40816113d0565b915050610b4c82610aa6565b8152610b5a60208301610aa6565b6020820152610b6b60408301610aa6565b6040820152610b7c60608301610aa6565b6060820152610b8d60808301610aa6565b608082015260a082013560a082015260c082013560c082015260e082013560e0820152610100808301358183015250610120808301358183015250610140610bd6818401610c3c565b90820152610160610be8838201610c28565b90820152610180610bfa838201610c28565b908201526101a0610c0c838201610c28565b908201526101c0610c1e838201610c28565b9082015292915050565b803563ffffffff8116811461021c57600080fd5b803567ffffffffffffffff8116811461021c57600080fd5b803560ff8116811461021c57600080fd5b60008060408385031215610c77578182fd5b610c8083610aa6565b946020939093013593505050565b600060208284031215610c9f578081fd5b813567ffffffffffffffff811115610cb5578182fd5b610cc184828501610abd565b949350505050565b60006101e08284031215610cdb578081fd5b6103858383610b24565b60008060008060006102608688031215610cfd578081fd5b610d078787610b24565b94506101e086013593506102008601359250610d266102208701610c54565b9150610d356102408701610c54565b90509295509295909350565b6000806102008385031215610d54578182fd5b610d5e8484610b24565b91506101e083013567ffffffffffffffff811115610d7a578182fd5b610d8685828601610abd565b9150509250929050565b6000806102008385031215610da3578182fd5b610dad8484610b24565b946101e0939093013593505050565b6001600160a01b03169052565b60008151808452610de18160208601602086016113f4565b601f01601f19169290920160200192915050565b610e00828251610dbc565b6020810151610e126020840182610dbc565b506040810151610e256040840182610dbc565b506060810151610e386060840182610dbc565b506080810151610e4b6080840182610dbc565b5060a081015160a083015260c081015160c083015260e081015160e083015261010080820151818401525061012080820151818401525061014080820151610e9582850182610ef9565b505061016080820151610eaa82850182610eef565b505061018080820151610ebf82850182610eef565b50506101a080820151610ed482850182610eef565b50506101c080820151610ee982850182610eef565b50505050565b63ffffffff169052565b67ffffffffffffffff169052565b6bffffffffffffffffffffffff19606096871b8116825294861b8516601482015292851b8416602884015290841b8316603c83015290921b16605082015260640190565b918252602082015260400190565b93845260208401929092527fff0000000000000000000000000000000000000000000000000000000000000060f891821b8116604085015291901b16604182015260420190565b60008551610fb2818460208a016113f4565b855190830190610fc6818360208a016113f4565b8551910190610fd98183602089016113f4565b8451910190610fec8183602088016113f4565b019695505050505050565b948552602085019390935260408401919091526060830152608082015260a00190565b7f4f726465722861646472657373207472616465722c616464726573732062726f81527f6b65722c616464726573732072656c617965722c61646472657373207265666560208201527f727265722c61646472657373206c6971756964697479506f6f6c2c000000000060408201527f696e74323536206d696e5472616465416d6f756e742c696e7432353620616d6f605b8201527f756e742c696e74323536206c696d697450726963652c696e7432353620747269607b8201527f6767657250726963652c75696e7432353620636861696e49442c000000000000609b8201527f75696e743634206578706972656441742c75696e74333220706572706574756160b58201527f6c496e6465782c75696e7433322062726f6b65724665654c696d69742c75696e60d58201527f74333220666c6167732c75696e7433322073616c74290000000000000000000060f582015261010b0190565b7f190100000000000000000000000000000000000000000000000000000000000081526002810192909252602282015260420190565b7f454950373132446f6d61696e28737472696e67206e616d652900000000000000815260190190565b60c09790971b7fffffffffffffffff00000000000000000000000000000000000000000000000016875260e095861b7fffffffff00000000000000000000000000000000000000000000000000000000908116600889015294861b8516600c88015292851b84166010870152931b909116601484015260f891821b7fff000000000000000000000000000000000000000000000000000000000000009081166018850152911b166019820152601a0190565b6001600160a01b0391909116815260200190565b901515815260200190565b90815260200190565b82815261020081016103856020830184610df5565b6000602082526103856020830184610dc9565b6020808252600b908201527f62726f6b656e2064617461000000000000000000000000000000000000000000604082015260600190565b60208082526015908201527f756e737570706f72746564207369676e20747970650000000000000000000000604082015260600190565b60006102208583526113586020840186610df5565b8061020084015261136b81840185610dc9565b9695505050505050565b838152610220810161138a6020830185610df5565b82610200830152949350505050565b60006102006113a88386610df5565b806101e0840152610a2181840185610dc9565b67ffffffffffffffff91909116815260200190565b60405181810167ffffffffffffffff811182821017156113ec57fe5b604052919050565b60005b8381101561140f5781810151838201526020016113f7565b83811115610ee9575050600091015256fe45434453413a20696e76616c6964207369676e6174757265202773272076616c756545434453413a20696e76616c6964207369676e6174757265202776272076616c7565a2646970667358221220b618963a7719f27e846cb26e79f048a6cf77bb025719beb3300eeb5c7521a1c664736f6c63430007040033",
+  "linkReferences": {
+    "contracts/module/OrderModule.sol": {
+      "OrderModule": [
+        {
+          "length": 20,
+          "start": 687
+        },
+        {
+          "length": 20,
+          "start": 821
+        },
+        {
+          "length": 20,
+          "start": 1285
+        }
+      ]
+    }
+  },
+  "deployedLinkReferences": {
+    "contracts/module/OrderModule.sol": {
+      "OrderModule": [
+        {
+          "length": 20,
+          "start": 650
+        },
+        {
+          "length": 20,
+          "start": 784
+        },
+        {
+          "length": 20,
+          "start": 1248
+        }
+      ]
+    }
+  }
+}

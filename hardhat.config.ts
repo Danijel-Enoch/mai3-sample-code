@@ -24,10 +24,12 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.4",
+  defaultNetwork: "arbrinkeby",
   networks: {
     arbrinkeby: {
       url: "https://rinkeby.arbitrum.io/rpc",
-      gasPrice: 1e9,
+      gasPrice: 2e9,
+      gas: 2100000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       timeout: 300000,

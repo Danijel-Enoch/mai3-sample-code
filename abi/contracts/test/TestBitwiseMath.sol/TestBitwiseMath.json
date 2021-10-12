@@ -1,0 +1,83 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TestBitwiseMath",
+  "sourceName": "contracts/test/TestBitwiseMath.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bit",
+          "type": "uint256"
+        }
+      ],
+      "name": "clean",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bit",
+          "type": "uint256"
+        }
+      ],
+      "name": "set",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "bit",
+          "type": "uint256"
+        }
+      ],
+      "name": "test",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610131806100206000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80631ab06ee51460415780637604f954146073578063eb8ac921146093575b600080fd5b606160048036036040811015605557600080fd5b508035906020013560c7565b60408051918252519081900360200190f35b606160048036036040811015608757600080fd5b508035906020013560d8565b60b36004803603604081101560a757600080fd5b508035906020013560e2565b604080519115158252519081900360200190f35b600060d1838360ec565b9392505050565b600060d1838360f0565b600060d1838360f5565b1790565b191690565b1615159056fea2646970667358221220dfc955727d6c27ba381af241bcd1a50b657e22427a583802bd28d70323cdab6864736f6c63430007040033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80631ab06ee51460415780637604f954146073578063eb8ac921146093575b600080fd5b606160048036036040811015605557600080fd5b508035906020013560c7565b60408051918252519081900360200190f35b606160048036036040811015608757600080fd5b508035906020013560d8565b60b36004803603604081101560a757600080fd5b508035906020013560e2565b604080519115158252519081900360200190f35b600060d1838360ec565b9392505050565b600060d1838360f0565b600060d1838360f5565b1790565b191690565b1615159056fea2646970667358221220dfc955727d6c27ba381af241bcd1a50b657e22427a583802bd28d70323cdab6864736f6c63430007040033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
