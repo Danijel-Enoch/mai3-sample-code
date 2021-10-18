@@ -34,3 +34,9 @@
    3. set leverage from 5 to 2
    4. withdraw amount from margin account
    5. set leverage from 2 to 10
+
+## Example Funding
+### Contract Sample Code
+1. /src/funding/contract-sample-code.ts
+   1. get fundingRate
+

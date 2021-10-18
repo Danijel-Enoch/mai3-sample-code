@@ -8,7 +8,7 @@ import {
 } from "../utils";
 
 async function setupPosition(liquidityPool: any, trader: any) {
-  // setTargetLeverage if you didn't set. 5x Leverage.
+  // setTargetLeverage if leverage is not 5.
   let marginAccount = await liquidityPool.getMarginAccount(0, trader.address)
   let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
   if (targetLeverage != 5) {
@@ -48,7 +48,7 @@ async function remarginFrom5To2(liquidityPool: any, trader: any) {
 }
 
 async function remarginFrom2To10(liquidityPool: any, trader: any) {
-  // If we want to set leverage from 5 to 2, 30 USDC is Keeper Gas Reward.
+  // If we want to set leverage from 2 to 10, 30 USDC is Keeper Gas Reward.
   let marginAccount = await liquidityPool.getMarginAccount(0, trader.address)
   let position = fromWei(marginAccount.position.toString())
   let margin = fromWei(marginAccount.margin.toString())
