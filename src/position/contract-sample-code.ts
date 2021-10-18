@@ -17,7 +17,7 @@ async function main() {
   const liquidityPool = new ethers.Contract(liquidityPoolAddress, liquidityPoolABI.abi, ethers.provider)
 
   // take perpetualIndex 0 (ETH-USD) for example:
-  // 2. setTargetLeverage if you didn't set. 5x Leverage.
+  // 2. setTargetLeverage if leverage is not 5.
   let marginAccount = await liquidityPool.getMarginAccount(0, trader.address)
   let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
   if (targetLeverage != 5) {
@@ -29,7 +29,7 @@ async function main() {
   // POSITION = 1
   let { _, totalFee, cost } = await liquidityPool.connect(trader).callStatic.queryTrade(0, trader.address, toWei("1"), NONE, USE_TARGET_LEVERAGE)
   console.log("totalFee", fromWei(totalFee.toString()))
-  console.log("cost", fromWei(cost.toString()))
+  console.log("cost " + fromWei(cost.toString()+ "~= (mark price / leverage) + Keeper Gas Reward"))
 
   // 4. execute trade(): open position
   await liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE)
