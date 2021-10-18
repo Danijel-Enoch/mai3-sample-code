@@ -18,7 +18,12 @@ async function main() {
 
   // take perpetualIndex 0 (ETH-USD) for example:
   // 2. setTargetLeverage if you didn't set. 5x Leverage.
-  await liquidityPool.connect(trader).setTargetLeverage(0, trader.address, toWei("5"))
+  let marginAccount = await liquidityPool.getMarginAccount(0, trader.address)
+  let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
+  if (targetLeverage != 5) {
+    await liquidityPool.connect(trader).setTargetLeverage(0, trader.address, toWei("5"))
+    console.log("Set leverage to 5");
+  }
 
   // 3. use queryTrade() to know totalFee, cost before executing trade().
   // POSITION = 1
@@ -27,7 +32,7 @@ async function main() {
   console.log("cost", fromWei(cost.toString()))
 
   // 4. execute trade(): open position
-  await liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("3600"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE)
+  await liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE)
 
   // 5. execute trade(): close position
   await liquidityPool.connect(trader).trade(0, trader.address, toWei("-1"), toWei("3500"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE)

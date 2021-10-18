@@ -3,6 +3,8 @@
 1. npm install
 2. `cp .env.example ./.env`
    1. edit your private key
+3. update hardhat.config.ts
+   1. edit network (Example is using arb-rinkeby, pool 0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13)
 ## Sample Code (Take Arb-Rinkeby for example)
 ## Example Position
 ### Setup
@@ -28,5 +30,7 @@
 ### Contract Sample Code
 1. /src/remargin/contract-sample-code.ts
    1. setup a position 1 with 5x leverage
-   2. set leverage from 5 to 2
-   3. deposit amount into margin account
+   2. deposit amount into margin account
+   3. set leverage from 5 to 2
+   4. withdraw amount from margin account
+   5. set leverage from 2 to 10
