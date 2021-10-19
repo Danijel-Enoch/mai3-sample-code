@@ -10,7 +10,7 @@
 - 0 perpetualIndex (ETH-USDC)
 - 5x Leverage 
 ### Contract Sample Code
-1. ts-node sdk-src/position-sample-code.ts: 
+1. ts-node sdk-sample-code/position.ts: 
    1. Get contract ABI, LiquidityPoolAddress
    2. setTargetLeverage if you didn't set.
    3. positionMain
@@ -31,7 +31,7 @@
 - 5x Leverage
 - 1 position
 ### Contract Sample Code
-1. ts-node sdk-src/remargin-sample-code.ts
+1. ts-node sdk-sample-code/remargin.ts
    1. setup a position 1 with 5x leverage
    2. deposit amount into margin account
    3. set leverage from 5 to 2
@@ -40,7 +40,7 @@
 
 ## Example Funding
 ### Contract Sample Code
-1. ts-node sdk-src/funding-sample-code.ts
+1. ts-node sdk-sample-code/funding.ts
    1. get fundingRate
    2. get unitAccumulativeFunding
    3. get funding payment
