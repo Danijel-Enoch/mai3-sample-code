@@ -12,20 +12,7 @@ import {
   ensureFinished,
 } from "../utils"
 
-// Take Arb-Rinkeby LiquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13) for example.
-async function main() {
-  // 1. Get contract ABI, LiquidityPoolAddress
-  const liquidityPoolAddress = "0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13"
-  const provider = new JsonRpcProvider('https://rinkeby.arbitrum.io/rpc')
-  const pk = process.env.PRIVATE_KEY
-  if (pk == undefined) {
-    console.log("PRIVATE_KEY is undefined")
-    return
-  }
-  const signer = new ethers.Wallet(pk, provider)
-  const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
-
-  // take perpetualIndex 0 (ETH-USD) for example:
+async function positionMain(liquidityPool: any, signer: any) {
   // 2. setTargetLeverage if leverage is not 5.
   let marginAccount = await liquidityPool.getMarginAccount(0, signer.address)
   let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
@@ -47,6 +34,50 @@ async function main() {
   // 5. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3500"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
   console.log("close position")
+}
+
+async function collateralMain(liquidityPool: any, signer: any) {
+  // 2. setTargetLeverage if leverage is not 5.
+  let marginAccount = await liquidityPool.getMarginAccount(0, signer.address)
+  let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
+  if (targetLeverage != '5.0') {
+    await ensureFinished(liquidityPool.connect(signer).setTargetLeverage(0, signer.address, toWei("5")))
+    console.log("Set leverage to 5");
+  }
+
+  // 3. Using collateral to calculate position.
+  const {nums} = await liquidityPool.getPerpetualInfo(0)
+  const markPrice = fromWei(nums[1].toString())
+  // Take 3500 USDC for example: want long 3500 USDC
+  const position = 3500 / Number(markPrice)
+  console.log("markPrice " + markPrice, "position " + position + " = 3500 / markPrice")
+
+  // 4. execute trade(): open position
+  await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei(position.toString()), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
+  console.log("open position")
+
+  // 5. execute trade(): close position
+  const negPosition = position*-1
+  await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei(negPosition.toString()), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
+  console.log("close position")
+}
+
+async function main() {
+  // 1. Get contract ABI, LiquidityPoolAddress
+  const liquidityPoolAddress = "0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13"
+  const provider = new JsonRpcProvider('https://rinkeby.arbitrum.io/rpc')
+  const pk = process.env.PRIVATE_KEY
+  if (pk == undefined) {
+    console.log("PRIVATE_KEY is undefined")
+    return
+  }
+  const signer = new ethers.Wallet(pk, provider)
+  const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
+
+  // Take Arb-Rinkeby LiquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13) for example.
+  // take perpetualIndex 0 (ETH-USD) for example:
+  // await positionMain(liquidityPool, signer)
+  await collateralMain(liquidityPool, signer)
 }
 
 main()
