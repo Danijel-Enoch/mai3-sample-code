@@ -10,53 +10,37 @@ import {
   NONE,
   USE_TARGET_LEVERAGE,
   ensureFinished,
-} from "../utils"
+} from "./utils"
 
 async function positionMain(liquidityPool: any, signer: any) {
-  // 2. setTargetLeverage if leverage is not 5.
-  let marginAccount = await liquidityPool.getMarginAccount(0, signer.address)
-  let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
-  if (targetLeverage != '5.0') {
-    await ensureFinished(liquidityPool.connect(signer).setTargetLeverage(0, signer.address, toWei("5")))
-    console.log("Set leverage to 5");
-  }
-
-  // 3. use queryTrade() to know totalFee, cost before executing trade().
+  // 1. use queryTrade() to know totalFee, cost before executing trade().
   // POSITION = 1
   let { totalFee, cost } = await liquidityPool.connect(signer).callStatic.queryTrade(0, signer.address, toWei("1"), NONE, USE_TARGET_LEVERAGE)
   console.log("totalFee", fromWei(totalFee.toString()))
   console.log("cost " + fromWei(cost.toString()) + " ~= (mark price / leverage) + Keeper Gas Reward")
 
-  // 4. execute trade(): open position
+  // 2. execute trade(): open position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
   console.log("open position")
 
-  // 5. execute trade(): close position
+  // 3. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3500"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
   console.log("close position")
 }
 
 async function collateralMain(liquidityPool: any, signer: any) {
-  // 2. setTargetLeverage if leverage is not 5.
-  let marginAccount = await liquidityPool.getMarginAccount(0, signer.address)
-  let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
-  if (targetLeverage != '5.0') {
-    await ensureFinished(liquidityPool.connect(signer).setTargetLeverage(0, signer.address, toWei("5")))
-    console.log("Set leverage to 5");
-  }
-
-  // 3. Using collateral to calculate position.
+  // 1. Using collateral to calculate position.
   const {nums} = await liquidityPool.getPerpetualInfo(0)
   const markPrice = fromWei(nums[1].toString())
-  // Take 3500 USDC for example: want long 3500 USDC
+  // Take 3500 USDC for example: long 3500 USDC
   const position = 3500 / Number(markPrice)
   console.log("markPrice " + markPrice, "position " + position + " = 3500 / markPrice")
 
-  // 4. execute trade(): open position
+  // 2. execute trade(): open position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei(position.toString()), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
   console.log("open position")
 
-  // 5. execute trade(): close position
+  // 3. execute trade(): close position
   const negPosition = position*-1
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei(negPosition.toString()), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
   console.log("close position")
@@ -74,9 +58,17 @@ async function main() {
   const signer = new ethers.Wallet(pk, provider)
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
+  // 2. setTargetLeverage if leverage is not 5.
+  let marginAccount = await liquidityPool.getMarginAccount(0, signer.address)
+  let targetLeverage = fromWei(marginAccount.targetLeverage.toString())
+  if (targetLeverage != '5.0') {
+    await ensureFinished(liquidityPool.connect(signer).setTargetLeverage(0, signer.address, toWei("5")))
+    console.log("Set leverage to 5");
+  }
+
   // Take Arb-Rinkeby LiquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13) for example.
   // take perpetualIndex 0 (ETH-USD) for example:
-  // await positionMain(liquidityPool, signer)
+  await positionMain(liquidityPool, signer)
   await collateralMain(liquidityPool, signer)
 }
 
