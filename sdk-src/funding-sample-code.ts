@@ -1,4 +1,4 @@
-import {ensureFinished, fromWei, NONE, toWei, USE_TARGET_LEVERAGE} from "../utils";
+import {ensureFinished, fromWei, NONE, toWei, USE_TARGET_LEVERAGE} from "./utils";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { LiquidityPoolFactory } from '@mcdex/mai3.js';
 import { ethers } from 'ethers';
@@ -21,20 +21,9 @@ async function main() {
   const {nums} = await liquidityPool.getPerpetualInfo(0)
   console.log("fundingRate " + fromWei(nums[3].toString()))
 
-  // execute trade(): open position
-  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("4000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
-  console.log("open position")
-
-  let marginAccount = await liquidityPool.getMarginAccount(0, trader.address)
-  let position = fromWei(marginAccount.position.toString())
-  console.log("should be 1 = ", position)
   let unitAccumulativeFunding = fromWei(nums[4].toString())
   console.log("unitAccumulativeFunding " + unitAccumulativeFunding)
-  console.log("Funding payment = entryFunding - position * unitAccumulativeFunding (" + Number(position)*Number(unitAccumulativeFunding) + "), entryFunding from MarginAccount of MAI3-graph")
-  // execute trade(): close position
-  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
-  console.log("close position")
-
+  console.log("Funding payment = entryFunding - position(1) * unitAccumulativeFunding (" + Number(unitAccumulativeFunding) + "), entryFunding from MarginAccount of MAI3-graph")
 }
 
 main()
