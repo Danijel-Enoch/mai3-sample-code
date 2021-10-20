@@ -1,7 +1,6 @@
-import {ensureFinished, fromWei, NONE, toWei, USE_TARGET_LEVERAGE} from "./utils";
+import {ensureFinished, fromWei, NONE, toWei, USE_TARGET_LEVERAGE} from "../utils/utils";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import { LiquidityPoolFactory } from '@mcdex/mai3.js';
-import { ethers } from 'ethers';
 import * as dotenv from "dotenv";
 dotenv.config({ path: '~/.env' });
 
@@ -23,7 +22,7 @@ async function main() {
 
   let unitAccumulativeFunding = fromWei(nums[4].toString())
   console.log("unitAccumulativeFunding " + unitAccumulativeFunding)
-  console.log("Funding payment = entryFunding - position(1) * unitAccumulativeFunding (" + Number(unitAccumulativeFunding) + "), entryFunding from MarginAccount of MAI3-graph")
+  console.log("Funding payment = entryFunding - position(1) * unitAccumulativeFunding (" + unitAccumulativeFunding + "), entryFunding from MarginAccount of MAI3-graph")
 }
 
 main()
