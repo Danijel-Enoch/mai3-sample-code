@@ -14,6 +14,7 @@ async function main() {
     console.log("PRIVATE_KEY is undefined")
     return
   }
+  // @ts-ignore
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
   // Take perpetualIndex 0 for example: index 3 of perpetualInfo is fundingRate
