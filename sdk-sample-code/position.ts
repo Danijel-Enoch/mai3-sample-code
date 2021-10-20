@@ -55,7 +55,9 @@ async function main() {
     console.log("PRIVATE_KEY is undefined")
     return
   }
+  // @ts-ignore
   const signer = new ethers.Wallet(pk, provider)
+  // @ts-ignore
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
   // 2. setTargetLeverage if leverage is not 5.

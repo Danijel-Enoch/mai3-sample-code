@@ -96,7 +96,9 @@ async function main() {
     console.log("PRIVATE_KEY is undefined")
     return
   }
+  // @ts-ignore
   const trader = new ethers.Wallet(pk, provider)
+  // @ts-ignore
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
   await setupPosition(liquidityPool, trader)
