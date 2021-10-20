@@ -10,7 +10,7 @@ import {
   NONE,
   USE_TARGET_LEVERAGE,
   ensureFinished,
-} from "./utils"
+} from "../utils/utils"
 
 async function positionMain(liquidityPool: any, signer: any) {
   // 1. use queryTrade() to know totalFee, cost before executing trade().

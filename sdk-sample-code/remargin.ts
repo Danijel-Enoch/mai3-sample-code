@@ -10,7 +10,7 @@ import {
   NONE,
   USE_TARGET_LEVERAGE,
   ensureFinished,
-} from "./utils";
+} from "../utils/utils";
 
 async function setupPosition(liquidityPool: any, trader: any) {
   // setTargetLeverage if leverage is not 5.
