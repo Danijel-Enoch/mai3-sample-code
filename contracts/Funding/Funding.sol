@@ -4,22 +4,33 @@ pragma solidity >=0.7.4;
 import "../interface/ILiquidityPoolGetter.sol";
 
 contract Funding {
-  ILiquidityPoolGetter liquidityPool;
-  uint256 perpetualIndex;
-  constructor(address liquidityPoolAddress, uint256 index) {
-    liquidityPool = ILiquidityPoolGetter(liquidityPoolAddress);
-    perpetualIndex = index;
+  constructor() {}
+
+  function markPrice(address liquidityPoolAddress, uint256 index) public view returns (int256) {
+    int256[42] memory nums;
+    ILiquidityPoolGetter liquidityPool = ILiquidityPoolGetter(liquidityPoolAddress);
+    (, , nums) = liquidityPool.getPerpetualInfo(index);
+    return nums[1];
   }
 
-  function fundingRate() external view returns (int256) {
+  function indexPrice(address liquidityPoolAddress, uint256 index) public view returns (int256) {
     int256[42] memory nums;
-    (, , nums) = liquidityPool.getPerpetualInfo(perpetualIndex);
+    ILiquidityPoolGetter liquidityPool = ILiquidityPoolGetter(liquidityPoolAddress);
+    (, , nums) = liquidityPool.getPerpetualInfo(index);
+    return nums[2];
+  }
+
+  function fundingRate(address liquidityPoolAddress, uint256 index) public view returns (int256) {
+    int256[42] memory nums;
+    ILiquidityPoolGetter liquidityPool = ILiquidityPoolGetter(liquidityPoolAddress);
+    (, , nums) = liquidityPool.getPerpetualInfo(index);
     return nums[3];
   }
 
-  function unitAccumulativeFunding() external view returns (int256) {
+  function unitAccumulativeFunding(address liquidityPoolAddress, uint256 index) public view returns (int256) {
     int256[42] memory nums;
-    (, , nums) = liquidityPool.getPerpetualInfo(perpetualIndex);
+    ILiquidityPoolGetter liquidityPool = ILiquidityPoolGetter(liquidityPoolAddress);
+    (, , nums) = liquidityPool.getPerpetualInfo(index);
     return nums[4];
   }
 }
