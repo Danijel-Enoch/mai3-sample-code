@@ -44,6 +44,6 @@ contract Position {
     int256 tradeAmount
   ) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
-    tradeAmount = liquidity.trade(perpetualIndex, address(this), amount, limitPrice, deadline, referrer, flags);
+    tradeAmount = liquidityPool.trade(perpetualIndex, address(this), amount, limitPrice, deadline, referrer, flags);
   }
 }
