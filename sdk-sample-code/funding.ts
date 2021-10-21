@@ -8,11 +8,6 @@ async function main() {
   // Get contract ABI, LiquidityPoolAddress
   const liquidityPoolAddress = "0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13"
   const provider = new JsonRpcProvider('https://rinkeby.arbitrum.io/rpc')
-  const pk = process.env.PRIVATE_KEY
-  if (pk == undefined) {
-    console.log("PRIVATE_KEY is undefined")
-    return
-  }
   // @ts-ignore
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
