@@ -13,17 +13,6 @@ async function test() {
   const { totalFee, cost }  = await contract.callStatic.queryTrade("0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13", 0, toWei("1"), NONE, USE_TARGET_LEVERAGE)
   console.log("totalFee", fromWei(totalFee.toString()))
   console.log("cost " + fromWei(cost.toString()) + " ~= (mark price / leverage) + Keeper Gas Reward")
-  const {cash, position, availableMargin, margin, settleableMargin } = await contract.callStatic.getMarginAccountFirst("0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13", 0)
-  console.log("cash: ", fromWei(cash.toString()))
-  console.log("position: ", fromWei(position.toString()))
-  console.log("availableMargin: ", fromWei(availableMargin.toString()))
-  console.log("margin: ", fromWei(margin.toString()))
-  console.log("settleableMargin: ", fromWei(settleableMargin.toString()))
-  const {isInitialMarginSafe, isMaintenanceMarginSafe, isMarginSafe, targetLeverage} = await contract.callStatic.getMarginAccountSecond("0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13", 0)
-  console.log("isInitialMarginSafe: ", isInitialMarginSafe)
-  console.log("isMaintenanceMarginSafe: ", isMaintenanceMarginSafe)
-  console.log("isMarginSafe: ", isMarginSafe)
-  console.log("targetLeverage: ", fromWei(targetLeverage.toString()))
 }
 
 test().catch((error) => {
