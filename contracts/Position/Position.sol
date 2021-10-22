@@ -10,6 +10,7 @@ contract Position {
   function setTargetLeverage(address liquidityPoolAddress, uint256 perpetualIndex, int256 leverage
   ) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState();
     liquidityPool.setTargetLeverage(perpetualIndex, address(this), leverage);
   }
 
@@ -29,7 +30,6 @@ contract Position {
     int256 tradeAmount
   ) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
-    liquidityPool.forceToSyncState();
     tradeAmount = liquidityPool.trade(perpetualIndex, address(this), amount, limitPrice, deadline, referrer, flags);
   }
 }
