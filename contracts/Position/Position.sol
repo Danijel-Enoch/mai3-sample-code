@@ -19,6 +19,7 @@ contract Position {
     int256 tradePrice, int256 totalFee, int256 cost
   ) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState();
     (tradePrice, totalFee, cost) = liquidityPool.queryTrade(perpetualIndex, address(this), position, referrer, flags);
   }
 
@@ -28,6 +29,7 @@ contract Position {
     int256 tradeAmount
   ) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState();
     tradeAmount = liquidityPool.trade(perpetualIndex, address(this), amount, limitPrice, deadline, referrer, flags);
   }
 }
