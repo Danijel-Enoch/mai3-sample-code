@@ -32,8 +32,8 @@
 ### Typescript Sample Code
 1. ts-node sdk-sample-code/remargin.ts
    1. setup a position 1
-   2. calculate depositAmount with target leverage
-   3. deposit amount into margin account
+   2. calculate margin with target leverage
+   3. deposit/withdraw amount into margin account
 
 ## Example Funding
 ### Typescript Sample Code
