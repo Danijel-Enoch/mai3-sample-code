@@ -2,16 +2,11 @@ import BigNumber from "bignumber.js"
 import { ethers } from "ethers"
 import {
   getReaderContract,
+  getERC20Contract,
   getLiquidityPool,
   getAccountStorage,
   Reader,
 } from "@mcdex/mai3.js"
-
-const erc20ABI = [
-  // Read-Only Functions
-  "function balanceOf(address owner) view returns (uint256)",
-  "function totalSupply() view returns (uint256)",
-]
 
 async function getLPExposure(
   reader: Reader,
@@ -22,19 +17,11 @@ async function getLPExposure(
   const result: Array<BigNumber> = []
 
   const pool = await getLiquidityPool(reader, liquidityPool)
-  const shareToken = new ethers.Contract(
-    pool.shareToken,
-    erc20ABI,
-    reader.provider
-  )
+  const shareToken = await getERC20Contract(pool.shareToken, reader.provider)
 
   // get shares of the LP
-  const lpBalance = new BigNumber(
-    ((await shareToken.balanceOf(lp)) as ethers.BigNumber).toString()
-  )
-  const totalLP = new BigNumber(
-    ((await shareToken.totalSupply()) as ethers.BigNumber).toString()
-  )
+  const lpBalance = new BigNumber((await shareToken.balanceOf(lp)).toString())
+  const totalLP = new BigNumber((await shareToken.totalSupply()).toString())
   const shares = lpBalance.div(totalLP)
 
   for (let i = 0; i < pool.perpetuals.size; i++) {
