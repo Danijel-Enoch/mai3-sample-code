@@ -38,7 +38,7 @@ async function getLPExposure(
   const shares = lpBalance.div(totalLP)
 
   for (let i = 0; i < pool.perpetuals.size; i++) {
-    // read AMM positions, AMM is a reader with the address of liquidity pool
+    // read AMM positions, AMM is a trader with the address of liquidity pool
     const account = await getAccountStorage(
       reader,
       liquidityPool,
