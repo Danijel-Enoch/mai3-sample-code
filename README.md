@@ -9,7 +9,7 @@
 - liquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13)
 - 0 perpetualIndex (ETH-USDC)
 - 5x Leverage 
-### Contract Sample Code
+### Typescript Sample Code
 1. ts-node sdk-sample-code/position.ts: 
    1. setup
    2. setTargetLeverage if you didn't set.
@@ -29,18 +29,16 @@
 - liquidityPool (0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13)
 - 0 perpetualIndex (ETH-USDC)
 - 1 position
-
-### Contract Sample Code
+### Typescript Sample Code
 1. ts-node sdk-sample-code/remargin.ts
    1. setup a position 1
    2. calculate depositAmount with target leverage
    3. deposit amount into margin account
 
 ## Example Funding
-### Contract Sample Code
+### Typescript Sample Code
 1. ts-node sdk-sample-code/funding.ts
    1. get fundingRate
    2. get unitAccumulativeFunding
    3. calculate funding payment
       1. need to get entryFunding from MAI3-graph
-
