@@ -21,11 +21,13 @@ contract Remargin {
 
   function deposit(address liquidityPoolAddress, uint256 index, int256 depositAmount) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState();
     liquidityPool.deposit(index, address(this), depositAmount);
   }
 
   function withdraw(address liquidityPoolAddress, uint256 index, int256 withdrawAmount) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState();
     liquidityPool.withdraw(index, address(this), withdrawAmount);
   }
 }
