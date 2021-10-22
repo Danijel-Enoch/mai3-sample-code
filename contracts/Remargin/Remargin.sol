@@ -14,7 +14,7 @@ contract Remargin {
     (, ,nums) = liquidityPool.getPerpetualInfo(index);
     keeperGasReward = nums[11];
     markPrice = nums[1];
-    (, position, , margin, , , , , ) = liquidityPool.getMarginAccount(index, msg.sender);
+    (, position, , margin, , , , , ) = liquidityPool.getMarginAccount(index, address(this));
     targetMargin = (position * nums[1]) / leverage + nums[11];
     amount = targetMargin - margin;
   }
