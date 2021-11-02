@@ -12,7 +12,6 @@ import {
 } from "../utils/utils"
 
 async function main() {
-  // Take liquidityPool '0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13' and arb-rinkeby for example
   const liquidityPoolAddress = "0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13"
   const provider = new JsonRpcProvider('https://rinkeby.arbitrum.io/rpc')
 
