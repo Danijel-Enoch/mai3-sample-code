@@ -28,8 +28,8 @@ const config: HardhatUserConfig = {
   networks: {
     arbrinkeby: {
       url: "https://rinkeby.arbitrum.io/rpc",
-      gasPrice: 2e9,
-      blockGasLimit: 80000000,
+      gasPrice: 4e10,
+      blockGasLimit: 800000000,
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
