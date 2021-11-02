@@ -3,7 +3,7 @@ import {ethers} from "hardhat";
 import {fromWei, toWei} from "../../utils/utils";
 
 async function test() {
-  const Contract = await ethers.getContractFactory("Remargin");
+  const Contract = await ethers.getContractFactory("Margin");
   const contract = await Contract.deploy();
 
   await contract.deployed();
