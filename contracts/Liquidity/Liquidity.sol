@@ -6,12 +6,12 @@ import "../interface/ILiquidityPoolFull.sol";
 contract Liquidity {
   constructor() {}
 
-  function addLiquidity(int256 cashToAdd) public {
+  function addLiquidity(address liquidityPoolAddress, int256 cashToAdd) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
     liquidityPool.addLiquidity(amount);
   }
 
-  function removeLiquidity(int256 shareToRemove, int256 cashToReturn) public {
+  function removeLiquidity(address liquidityPoolAddress, int256 shareToRemove, int256 cashToReturn) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
     liquidityPool.removeLiquidity(shareToRemove, cashToReturn);
   }
