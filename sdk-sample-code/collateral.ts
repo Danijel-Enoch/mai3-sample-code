@@ -42,6 +42,7 @@ async function main() {
 
   async function searchPos(lPos: BigNumber, rPos: BigNumber, collateral: BigNumber, iteration: number): Promise<string> {
     while (iteration > 0) {
+      // l + (r-l)/2 for preventing over flow, instead of (l+r)/2
       let pos = lPos.plus(((rPos.minus(lPos)).div(2)))
       console.log("rPos " + rPos)
       console.log("lPos " + lPos)
