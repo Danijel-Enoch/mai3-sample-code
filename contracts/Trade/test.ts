@@ -3,7 +3,7 @@ import {ethers} from "hardhat";
 import {fromWei, NONE, toWei, USE_TARGET_LEVERAGE} from "../../utils/utils";
 
 async function test() {
-  const Contract = await ethers.getContractFactory("Position");
+  const Contract = await ethers.getContractFactory("Trade");
   const contract = await Contract.deploy();
 
   await contract.deployed();
