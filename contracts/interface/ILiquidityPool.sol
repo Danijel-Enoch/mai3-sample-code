@@ -53,6 +53,4 @@ interface ILiquidityPool {
      * @param   cashToReturn    The amount of cash(collateral) to return. The amount always use decimals 18.
      */
     function removeLiquidity(int256 shareToRemove, int256 cashToReturn) external;
-
-    function setTargetLeverage(uint256 perpetualIndex, address trader, int256 targetLeverage) external;
 }
