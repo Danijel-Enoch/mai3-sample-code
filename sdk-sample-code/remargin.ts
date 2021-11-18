@@ -11,13 +11,12 @@ import {
   fromWei,
   toWei,
   NONE,
-  USE_TARGET_LEVERAGE,
   ensureFinished,
 } from "../utils/utils";
 
 async function setupPosition(liquidityPool: any, trader: any) {
   // execute trade(): open position
-  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("4500"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
+  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("1"), toWei("4500"), Math.floor(Date.now()/1000)+999999, NONE, 12800))
   console.log("open position")
 }
 
@@ -50,7 +49,7 @@ async function remargin(liquidityPool: any, trader: any, perpetual: any, account
 
 async function teardown(liquidityPool: any, trader: any) {
   // execute trade(): close position
-  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, USE_TARGET_LEVERAGE))
+  await ensureFinished(liquidityPool.connect(trader).trade(0, trader.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 12800))
   console.log("close position")
 }
 

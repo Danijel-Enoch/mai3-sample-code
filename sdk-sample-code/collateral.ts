@@ -6,7 +6,6 @@ dotenv.config({ path: '~/.env' });
 import {
   toWei,
   NONE,
-  USE_TARGET_LEVERAGE,
   fromWei,
 } from "../utils/utils"
 import {getLiquidityPool, getReaderContract, LiquidityPoolFactory} from "@mcdex/mai3.js";
@@ -47,7 +46,7 @@ async function main() {
       console.log("rPos " + rPos)
       console.log("lPos " + lPos)
       console.log("pos " + pos)
-      let res = await liquidityPool.connect(signer).callStatic.queryTrade(0, signer.address, toWei(pos.toString()), NONE, USE_TARGET_LEVERAGE)
+      let res = await liquidityPool.connect(signer).callStatic.queryTrade(0, signer.address, toWei(pos.toString()), NONE, 12800)
       let costBigNumber = new BigNumber(fromWei(res.cost.toString()))
       console.log("costBigNumber " + costBigNumber)
 
