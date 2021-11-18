@@ -55,6 +55,14 @@ async function main() {
   // 7. execute trade(): close position without automatically withdraw.
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 0))
   console.log("close position without automatically withdraw")
+
+  // 8. execute trade(): market price with 1 leverage
+  await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 0x40000000+12800))
+  console.log("market price with 1 leverage")
+
+  // 9. execute trade(): close only
+  await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 0x80000000+12800))
+  console.log("close only")
 }
 
 main()
