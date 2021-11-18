@@ -15,19 +15,17 @@ contract Remargin {
     keeperGasReward = nums[11];
     markPrice = nums[1];
     (, position, , margin, , , , , ) = liquidityPool.getMarginAccount(index, address(this));
-    targetMargin = (position * nums[1]) / leverage + nums[11];
+    targetMargin = (position.abs() * nums[1]) / leverage + nums[11];
     amount = targetMargin - margin;
   }
 
   function deposit(address liquidityPoolAddress, uint256 index, int256 depositAmount) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
-    liquidityPool.forceToSyncState();
     liquidityPool.deposit(index, address(this), depositAmount);
   }
 
   function withdraw(address liquidityPoolAddress, uint256 index, int256 withdrawAmount) public {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
-    liquidityPool.forceToSyncState();
     liquidityPool.withdraw(index, address(this), withdrawAmount);
   }
 }

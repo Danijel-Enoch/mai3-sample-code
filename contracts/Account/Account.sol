@@ -14,6 +14,7 @@ contract Account {
   ) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
     // WARN: Stack too deep, try split the returns values
+    liquidityPool.forceToSyncState()
     (cash, position, availableMargin, margin, settleableMargin, isInitialMarginSafe,
      isMaintenanceMarginSafe, isMarginSafe, targetLeverage) = liquidityPool.getMarginAccount(
       perpetualIndex, trader);

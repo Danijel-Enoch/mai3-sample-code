@@ -11,6 +11,7 @@ contract Perpetual {
 
   function getPerpetual(address liquidityPoolAddress, uint256 perpetualIndex) public returns (PerpetualState state, address oracle, int256[42] memory nums) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState()
     (state, oracle, nums) = liquidityPool.getPerpetualInfo(perpetualIndex);
   }
 }

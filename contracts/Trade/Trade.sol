@@ -7,13 +7,6 @@ contract Position {
 
   constructor() {}
 
-  function setTargetLeverage(address liquidityPoolAddress, uint256 perpetualIndex, int256 leverage
-  ) public {
-    ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
-    liquidityPool.forceToSyncState();
-    liquidityPool.setTargetLeverage(perpetualIndex, address(this), leverage);
-  }
-
   function queryTrade(address liquidityPoolAddress, uint256 perpetualIndex, int256 position,
     address referrer, uint32 flags
   ) public returns (

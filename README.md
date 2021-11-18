@@ -12,13 +12,12 @@
 ### Typescript Sample Code
 1. ts-node sdk-sample-code/position.ts: 
    1. setup
-   2. setTargetLeverage if you didn't set.
-   3. positionMain
+   2. positionMain
       1. use queryTrade() to know totalFee, cost before executing trade().
          1. cost ~= (mark price / leverage) + Keeper Gas Reward 
       2. execute trade(): open position
       3. execute trade(): close position
-   4. collateralMain
+   3. collateralMain
       1. use collateral to calculate position.
          1. Take 3500 USDC for example: long 3500 USDC
       2. execute trade(): open position

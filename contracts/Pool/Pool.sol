@@ -9,6 +9,7 @@ contract Pool {
   function getPool(address liquidityPoolAddress) public returns (bool isRunning, bool isFastCreationEnabled,
     address[7] memory addresses, int256[5] memory intNums, uint256[6] memory uintNums) {
     ILiquidityPoolFull liquidityPool = ILiquidityPoolFull(liquidityPoolAddress);
+    liquidityPool.forceToSyncState()
     (isRunning, isFastCreationEnabled, addresses, intNums, uintNums) = liquidityPool.getLiquidityPoolInfo();
   }
 }
