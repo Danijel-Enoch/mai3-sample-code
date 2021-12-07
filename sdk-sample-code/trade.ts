@@ -1,5 +1,5 @@
 import { JsonRpcProvider } from "@ethersproject/providers";
-import { LiquidityPoolFactory } from '@mcdex/mai3.js';
+import {getReaderContract, LiquidityPoolFactory} from '@mcdex/mai3.js';
 import { ethers } from 'ethers';
 import * as dotenv from "dotenv";
 dotenv.config({ path: '~/.env' });
@@ -24,8 +24,10 @@ async function main() {
   // @ts-ignore
   const liquidityPool = LiquidityPoolFactory.connect(liquidityPoolAddress, provider)
 
+  // @ts-ignore
+  const reader = await getReaderContract(provider)
   // 1. use queryTrade() to know totalFee, cost before executing trade().
-  let { tradePrice, totalFee, cost } = await liquidityPool.connect(signer).callStatic.queryTrade(0, signer.address, toWei("1"), NONE, 12800)
+  let { tradePrice, totalFee, cost } = await reader.callStatic.queryTrade(liquidityPool.address, 0, signer.address, toWei("1"), NONE, 12800)
   console.log("tradePrice " + fromWei(tradePrice.toString()))
   console.log("totalFee " + fromWei(totalFee.toString()))
   console.log("cost " + fromWei(cost.toString()) + " ~= (mark price / leverage) + Keeper Gas Reward")
