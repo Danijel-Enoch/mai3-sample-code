@@ -43,19 +43,19 @@ async function main() {
 
   // 2. execute trade(): open position with 1x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), openTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 12800))
-  console.log("open position with 1 leverage")
+  console.log("open position with 1x leverage")
 
   // 3. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), closeTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 12800))
-  console.log("close position with 1 leverage")
+  console.log("close position")
 
   // 4. execute trade(): open position with 2x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), openTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 25600))
-  console.log("open position with 2 leverage")
+  console.log("open position with 2x leverage")
 
   // 5. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), closeTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 25600))
-  console.log("close position with 2 leverage")
+  console.log("close position")
 
   await ensureFinished(liquidityPool.connect(signer).deposit(0, signer.address, toWei("1000")))
   console.log("deposit 1000 into MarginAccount")
@@ -69,7 +69,7 @@ async function main() {
 
   // 8. execute trade(): market price with 1x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), openTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 0x40000000+12800))
-  console.log("market price with 1 leverage")
+  console.log("market price with 1x leverage")
 
   // 9. execute trade(): close only
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), closeTradePrice.toFixed(0), Math.floor(Date.now()/1000)+999999, NONE, 0x80000000+12800))
