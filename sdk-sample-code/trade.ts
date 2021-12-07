@@ -26,25 +26,25 @@ async function main() {
 
   // @ts-ignore
   const reader = await getReaderContract(provider)
-  // 1. use queryTrade() to know totalFee, cost before executing trade().
+  // 1. use queryTrade() to know totalFee, cost before executing trade() with 1x leverage
   let { tradePrice, totalFee, cost } = await reader.callStatic.queryTrade(liquidityPool.address, 0, signer.address, toWei("1"), NONE, 12800)
   console.log("tradePrice " + fromWei(tradePrice.toString()))
   console.log("totalFee " + fromWei(totalFee.toString()))
   console.log("cost " + fromWei(cost.toString()) + " ~= (mark price / leverage) + Keeper Gas Reward")
 
-  // 2. execute trade(): open position with 1 leverage
+  // 2. execute trade(): open position with 1x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), toWei("4500"), Math.floor(Date.now()/1000)+999999, NONE, 12800))
   console.log("open position with 1 leverage")
 
-  // 3. execute trade(): close position with 1 leverage
+  // 3. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 12800))
   console.log("close position with 1 leverage")
 
-  // 4. execute trade(): open position with 2 leverage
+  // 4. execute trade(): open position with 2x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), toWei("4500"), Math.floor(Date.now()/1000)+999999, NONE, 25600))
   console.log("open position with 2 leverage")
 
-  // 5. execute trade(): close position with 2 leverage
+  // 5. execute trade(): close position
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 25600))
   console.log("close position with 2 leverage")
 
@@ -58,7 +58,7 @@ async function main() {
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("-1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 0))
   console.log("close position without automatically withdraw")
 
-  // 8. execute trade(): market price with 1 leverage
+  // 8. execute trade(): market price with 1x leverage
   await ensureFinished(liquidityPool.connect(signer).trade(0, signer.address, toWei("1"), toWei("3000"), Math.floor(Date.now()/1000)+999999, NONE, 0x40000000+12800))
   console.log("market price with 1 leverage")
 
