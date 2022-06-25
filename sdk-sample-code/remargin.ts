@@ -35,7 +35,7 @@ async function remargin(liquidityPool: any, trader: any, perpetual: any, account
   console.log("now leverage: " + leverage)
 
   // assume we want leverage for 3, calculate margin
-  const targetMargin = oi / 3 + keeperGasReward
+  const targetMargin = oi / 15 + keeperGasReward
   console.log("targetMargin: " + targetMargin)
   if (targetMargin > Number(margin)) {
     const amount = targetMargin - Number(margin)
@@ -58,7 +58,7 @@ async function main() {
   // Get contract ABI, LiquidityPoolAddress
   const liquidityPoolAddress = "0xc32a2dfee97e2babc90a2b5e6aef41e789ef2e13"
   const provider = new JsonRpcProvider('https://rinkeby.arbitrum.io/rpc')
-  const pk = process.env.PRIVATE_KEY
+  const pk ="7eba5298f94752f4d748082f2368584f46baafb3d1151b8b218fc904acdd68be";
   if (pk == undefined) {
     console.log("PRIVATE_KEY is undefined")
     return
@@ -73,9 +73,9 @@ async function main() {
   const perpetual = pool.perpetuals.get(0)
   const account = await reader.callStatic.getAccountStorage(liquidityPoolAddress, 0, trader.address)
 
-  await setupPosition(liquidityPool, trader)
+  //await setupPosition(liquidityPool, trader)
   await remargin(liquidityPool, trader, perpetual, account.accountStorage)
-  await teardown(liquidityPool, trader)
+ // await teardown(liquidityPool, trader)
 }
 
 main()
